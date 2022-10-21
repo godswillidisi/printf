@@ -23,7 +23,7 @@ char *convert(long int num, int base, int flags, params_t *params)
                 n = -num;
                 sign = '-';
         }
-        array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "
+        array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF"
         ptr = &buffer[49];
         *ptr = '\0';
   
@@ -55,5 +55,4 @@ int printed_unsigned(va_list app, params_t *params)
         else
                 1 = (unsigned int)va_arg(ap, unsigned int);
         params->unsign = 1;
-        return (print_number(convert(1, 10, CONVERT_UNSIGNED, params)
-                       
+        return (print_number(convert(1, 10, CONVERT_UNSIGNED, params
