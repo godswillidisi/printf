@@ -17,7 +17,7 @@ char *convert(long int num, int base, int flags, params_t *params)
         char *ptr;
         unsigned long n = num;
         (void)params;
-        
+
         if (!(flags & CONVERT_UNSIGNED) && num < 0)
         {
                 n = -num;
@@ -26,12 +26,12 @@ char *convert(long int num, int base, int flags, params_t *params)
         array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF"
         ptr = &buffer[49];
         *ptr = '\0';
-        
+
         do      {
                 *--ptr = array[n % base];
                 n /= base;
                 } while (n != 0);
-        
+
         if (sign)
                 *--ptr = sign;
         return (ptr);
