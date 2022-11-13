@@ -1,4 +1,4 @@
-#include "nain.h"
+#include "main.h"
 
 /**
  * _printf - prints and input into the standard output
@@ -6,7 +6,7 @@
  * Return: number pf bytes printed
  */
 
-int _printf(const cahr *format, ...)
+int _printf(const char *format, ...)
 {
 	int sum = 0;
 	va_list ap;
@@ -35,12 +35,12 @@ int _printf(const cahr *format, ...)
 			p++; /* next character */
 		}
 		p = get_width(p, &params, ap);
-		p = get_percision(p, &params, ap);
+		p = get_precision(p, &params, ap);
 		if (get_modifier(p, &params))
 			p++;
 		if (!get_specifier(p))
 			sum += print_from_to(start, p,
-					params.1_modifier || params.h_modifier ? p - 1 : 0);
+					params.l_modifier || params.h_modifier ? p - 1 : 0);
 		else
 			sum += get_print_func(p, ap, &params);
 	}
